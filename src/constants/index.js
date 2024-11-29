@@ -113,3 +113,63 @@ export const experiences = [
     ],
   },
 ];
+
+export const projects = [
+  {
+    name: "iOS Social Media App",
+    description:
+      "A feature-rich social media application built with Swift and Firebase, incorporating real-time messaging, photo sharing, and user authentication.",
+    tags: [
+      {
+        name: "swift",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "firebase",
+        color: "green-text-gradient",
+      },
+      {
+        name: "social",
+        color: "pink-text-gradient",
+      },
+    ],
+  },
+  {
+    name: "E-Commerce Platform",
+    description:
+      "Full-stack e-commerce solution using React, Node.js, and MongoDB. Features include user authentication, product management, and payment integration.",
+    tags: [
+      {
+        name: "react",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "mongodb",
+        color: "green-text-gradient",
+      },
+      {
+        name: "node",
+        color: "pink-text-gradient",
+      },
+    ],
+  },
+  {
+    name: "Portfolio Website",
+    description:
+      "Modern portfolio website built with React, Tailwind CSS, and Framer Motion. Features smooth animations and responsive design.",
+    tags: [
+      {
+        name: "react",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "tailwind",
+        color: "green-text-gradient",
+      },
+      {
+        name: "framer",
+        color: "pink-text-gradient",
+      },
+    ],
+  },
+];

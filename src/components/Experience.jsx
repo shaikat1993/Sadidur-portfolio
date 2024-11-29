@@ -5,7 +5,7 @@ import { experiences } from '../constants';
 
 const Experience = () => {
   return (
-    <div className={`${styles.padding} max-w-7xl mx-auto relative z-0`}>
+    <section id="experience" className={`${styles.padding} max-w-7xl mx-auto relative z-0`}>
       <motion.div>
         <p className={styles.sectionSubText}>What I have done so far</p>
         <h2 className={styles.sectionHeadText}>Work Experience.</h2>
@@ -27,7 +27,7 @@ const Experience = () => {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

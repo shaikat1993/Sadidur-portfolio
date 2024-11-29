@@ -11,25 +11,24 @@ const TechCard = ({ icon: Icon, name }) => {
       whileTap={{ scale: 0.9 }}
     >
       <Icon className='w-16 h-16 text-[#915eff]' />
-      <p className='text-white text-[14px] text-center'>{name}</p>
+      <p className='text-white text-sm'>{name}</p>
     </motion.div>
   );
 };
 
 const Tech = () => {
   return (
-    <div className={`${styles.padding} max-w-7xl mx-auto relative z-0`}>
+    <section id="tech" className={`${styles.padding} max-w-7xl mx-auto relative z-0`}>
       <motion.div>
-        <p className={styles.sectionSubText}>My Skills</p>
+        <p className={styles.sectionSubText}>My technical expertise</p>
         <h2 className={styles.sectionHeadText}>Technologies.</h2>
       </motion.div>
-
       <div className='mt-20 flex flex-wrap gap-10 justify-center'>
-        {technologies.map((technology) => (
+        {technologies.map((technology, index) => (
           <TechCard key={technology.name} {...technology} />
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 
