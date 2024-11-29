@@ -55,8 +55,8 @@ const Hero = () => {
                   deletionSpeed={65}
                 />
               </div>
-              <p className="mt-2 text-[var(--text-secondary)] text-[17px]">
-                with expertise in mobile and web development
+              <p className="mt-2 text-[var(--text-secondary)] text-[17px] max-w-3xl">
+                Crafting elegant iOS experiences for 6+ years, now expanding horizons with Full Stack Development while pursuing Masters at Tampere University
               </p>
 
               {/* Social Links and Resume Button */}
@@ -153,8 +153,22 @@ const Hero = () => {
 
         {/* Scroll Indicator */}
         <div className="absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center">
-          <a href="#about">
-            <div className="w-[35px] h-[64px] rounded-3xl border-4 border-[var(--text-secondary)] flex justify-center items-start p-2">
+          <a 
+            href="#about"
+            onClick={(e) => {
+              e.preventDefault();
+              const aboutSection = document.querySelector('#about');
+              const offset = 0; // Adjust this value if you need some spacing
+              const elementPosition = aboutSection.getBoundingClientRect().top;
+              const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+              window.scrollTo({
+                top: offsetPosition,
+                behavior: "smooth"
+              });
+            }}
+          >
+            <div className="w-[35px] h-[64px] rounded-3xl border-4 border-[var(--text-secondary)] flex justify-center items-start p-2 hover:border-[var(--text-accent)] transition-colors duration-300">
               <motion.div
                 animate={{
                   y: [0, 24, 0],
@@ -164,7 +178,7 @@ const Hero = () => {
                   repeat: Infinity,
                   repeatType: "loop",
                 }}
-                className="w-3 h-3 rounded-full bg-[var(--text-secondary)] mb-1"
+                className="w-3 h-3 rounded-full bg-[var(--text-secondary)] mb-1 group-hover:bg-[var(--text-accent)]"
               />
             </div>
           </a>
