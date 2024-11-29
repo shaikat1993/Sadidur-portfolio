@@ -6,17 +6,20 @@ import { styles } from "../styles";
 import { experiences } from "../constants";
 import { SectionWrapper } from "../hoc";
 import { textVariant } from "../utils/motion";
+import { useTheme } from "../context/ThemeContext";
 
 const ExperienceCard = ({ experience }) => {
+  const { isDarkMode } = useTheme();
+  
   return (
     <VerticalTimelineElement
       contentStyle={{
-        background: "var(--bg-paper)",
+        background: isDarkMode ? "var(--bg-paper)" : "#fff",
         color: "var(--text-primary)",
-        boxShadow: "0 4px 6px var(--shadow-color)",
+        boxShadow: "0 3px 0 var(--shadow-color)",
         border: "1px solid var(--border-color)",
       }}
-      contentArrowStyle={{ borderRight: "7px solid var(--bg-paper)" }}
+      contentArrowStyle={{ borderRight: "7px solid var(--border-color)" }}
       date={experience.date}
       iconStyle={{ background: experience.iconBg }}
       icon={
@@ -30,17 +33,24 @@ const ExperienceCard = ({ experience }) => {
       }
     >
       <div>
-        <h3 className="text-[var(--text-primary)] text-[24px] font-bold">{experience.title}</h3>
-        <p className="text-[var(--text-secondary)] text-[16px] font-semibold" style={{ margin: 0 }}>
+        <h3 className="text-[24px] font-bold text-[var(--text-primary)]">
+          {experience.title}
+        </h3>
+        <a
+          href={experience.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[16px] font-semibold text-[var(--text-accent)] hover:underline"
+        >
           {experience.company_name}
-        </p>
+        </a>
       </div>
 
       <ul className="mt-5 list-disc ml-5 space-y-2">
         {experience.points.map((point, index) => (
           <li
             key={`experience-point-${index}`}
-            className="text-[var(--text-secondary)] text-[14px] pl-1 tracking-wider"
+            className="text-[14px] pl-1 tracking-wider text-[var(--text-secondary)]"
           >
             {point}
           </li>
@@ -52,24 +62,30 @@ const ExperienceCard = ({ experience }) => {
 
 const Experience = () => {
   return (
-    <>
-      <motion.div variants={textVariant()}>
-        <p className={`${styles.sectionSubText} text-[var(--text-secondary)]`}>
-          What I have done so far
-        </p>
-        <h2 className={`${styles.sectionHeadText} text-[var(--text-primary)]`}>
-          Work Experience.
-        </h2>
-      </motion.div>
+    <section className="relative w-full h-full mx-auto">
+      <div className={`${styles.padding} max-w-7xl mx-auto relative z-0`}>
+        <span className="hash-span" id="work">
+          &nbsp;
+        </span>
 
-      <div className="mt-20 flex flex-col">
-        <VerticalTimeline>
-          {experiences.map((experience, index) => (
-            <ExperienceCard key={index} experience={experience} />
-          ))}
-        </VerticalTimeline>
+        <motion.div variants={textVariant()}>
+          <p className={`${styles.sectionSubText} text-[var(--text-secondary)]`}>
+            What I have done so far
+          </p>
+          <h2 className={`${styles.sectionHeadText} text-[var(--text-primary)]`}>
+            Work Experience.
+          </h2>
+        </motion.div>
+
+        <div className="mt-20 flex flex-col">
+          <VerticalTimeline>
+            {experiences.map((experience, index) => (
+              <ExperienceCard key={index} experience={experience} />
+            ))}
+          </VerticalTimeline>
+        </div>
       </div>
-    </>
+    </section>
   );
 };
 

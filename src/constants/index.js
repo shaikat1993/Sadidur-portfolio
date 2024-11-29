@@ -16,6 +16,14 @@ import {
   SiFirebase,
 } from "react-icons/si";
 import { BsStack } from "react-icons/bs";
+import {
+  pathao,
+  binary,
+  wind,
+  matrix,
+  glostars,
+  datasoft,
+} from "../assets";
 
 export const navLinks = [
   {
@@ -100,16 +108,79 @@ export const technologies = [
 
 export const experiences = [
   {
-    title: "Senior iOS Developer",
-    company_name: "Previous Company",
-    icon: FaMobile,
+    title: "Software Engineer III (iOS)",
+    company_name: "Pathao Ltd.",
+    icon: pathao,
     iconBg: "#383E56",
-    date: "March 2017 - Present",
+    date: "June 2018 - December 2023",
+    link: "https://www.linkedin.com/company/pathao/",
     points: [
-      "Developing and maintaining iOS applications using Swift and modern iOS frameworks",
-      "Implementing responsive design and ensuring cross-device compatibility",
-      "Participating in code reviews and providing constructive feedback to other developers",
-      "Leading team of developers and mentoring junior developers",
+      "Developed core features for Pathao's payment, food, and ride-sharing applications in Swift, enhancing user experience and operational efficiency.",
+      "Optimised development workflows by implementing Agile methodologies and Git version control, facilitating smoother collaboration and reducing overall development time.",
+      "Integrated third-party analytics and localization tools, expanding the app's accessibility to global markets and providing a more personalised user experience.",
+      "Led R&D efforts for basic knowledge of ARKit and implemented best practices in UI localization, preparing the app for future expansions and ensuring robust accessibility standards.",
+    ],
+  },
+  {
+    title: "iOS Developer",
+    company_name: "Binary Ventures Limited",
+    icon: binary,
+    iconBg: "#E6DEDD",
+    date: "July 2017 - June 2018",
+    link: "https://www.linkedin.com/company/binary-ventures-limited/",
+    points: [
+      "Built and maintained the iOS system for Druto, a ride-sharing app, with a strong focus on user-friendly design, leading to positive feedback and improved app usability.",
+      "Utilised Agile development practices, advanced UI design patterns, and location-based service frameworks to deliver feature-rich functionality, supporting real-time services for the app's user base.",
+    ],
+  },
+  {
+    title: "iOS Engineer (Contractual)",
+    company_name: "Wind",
+    icon: wind,
+    iconBg: "#383E56",
+    date: "October 2022 - January 2023",
+    link: "https://apps.apple.com/us/app/wind-app-borderless-transfers/id6446427666",
+    points: [
+      "Implemented robust security measures to safeguard user wallet information.",
+      "Employed OWASP Top 10 standards and Git for secure coding practices.",
+    ],
+  },
+  {
+    title: "iOS Engineer",
+    company_name: "Matrix Solution",
+    icon: matrix,
+    iconBg: "#E6DEDD",
+    date: "February 2020 - January 2022",
+    link: "https://www.linkedin.com/company/matrix-solution/mycompany/",
+    points: [
+      "Enhanced multimedia capabilities through innovative Live Photo functionalities.",
+      "Leveraged AVFoundation and profiling tools for performance optimization.",
+      "Ensured smooth user experience via code profiling and refactoring techniques.",
+      "Applied optimization methods for seamless app performance.",
+    ],
+  },
+  {
+    title: "iOS App Developer",
+    company_name: "Glostars",
+    icon: glostars,
+    iconBg: "#383E56",
+    date: "August 2018 - April 2019",
+    link: "https://appadvice.com/app/glostars/1583087526",
+    points: [
+      "Developed and maintained iOS version of Glostars app, facilitating seamless photo sharing.",
+      "Utilized AVFoundation, API integration, and profiling tools for enhanced performance.",
+    ],
+  },
+  {
+    title: "iOS Developer (Trainee)",
+    company_name: "Datasoft Systems Bangladesh Limited",
+    icon: datasoft,
+    iconBg: "#E6DEDD",
+    date: "April 2017 - August 2017",
+    link: "http://datasoft-bd.com/",
+    points: [
+      "Contributed to new feature development and issue debugging for flagship iOS app.",
+      "Leveraged SDLC, UI design patterns, and API integration for seamless app functionality.",
     ],
   },
 ];
