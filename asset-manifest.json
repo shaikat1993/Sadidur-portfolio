@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "./static/css/main.50f768b3.css",
-    "main.js": "./static/js/main.d368aa95.js",
-    "static/media/iphone.gif": "./static/media/iphone.f8cdf1d44af2a5d704a3.gif",
-    "static/media/Md._Sadidur_Rahman_Resume.pdf": "./static/media/Md._Sadidur_Rahman_Resume.pdf",
-    "static/media/datasoft.png": "./static/media/datasoft.a0fd936018fe4073b941.png",
-    "static/media/pathao.png": "./static/media/pathao.92a78898db967a998917.png",
-    "static/media/glostars.png": "./static/media/glostars.10bccfe5d7fea8c16f5c.png",
-    "static/media/wind.png": "./static/media/wind.5f48058cf6d190b01be2.png",
-    "static/media/matrix.png": "./static/media/matrix.93b8613a79ed0e0fbd94.png",
-    "static/media/sadidur.jpeg": "./static/media/sadidur.792312427dc11e51f8f2.jpeg",
-    "index.html": "./index.html",
-    "main.50f768b3.css.map": "./static/css/main.50f768b3.css.map",
-    "main.d368aa95.js.map": "./static/js/main.d368aa95.js.map"
+    "main.css": "/Sadidur-portfolio/static/css/main.50f768b3.css",
+    "main.js": "/Sadidur-portfolio/static/js/main.f54135d4.js",
+    "static/media/iphone.gif": "/Sadidur-portfolio/static/media/iphone.f8cdf1d44af2a5d704a3.gif",
+    "static/media/Md._Sadidur_Rahman_Resume.pdf": "/Sadidur-portfolio/static/media/Md._Sadidur_Rahman_Resume.pdf",
+    "static/media/datasoft.png": "/Sadidur-portfolio/static/media/datasoft.a0fd936018fe4073b941.png",
+    "static/media/pathao.png": "/Sadidur-portfolio/static/media/pathao.92a78898db967a998917.png",
+    "static/media/glostars.png": "/Sadidur-portfolio/static/media/glostars.10bccfe5d7fea8c16f5c.png",
+    "static/media/wind.png": "/Sadidur-portfolio/static/media/wind.5f48058cf6d190b01be2.png",
+    "static/media/matrix.png": "/Sadidur-portfolio/static/media/matrix.93b8613a79ed0e0fbd94.png",
+    "static/media/sadidur.jpeg": "/Sadidur-portfolio/static/media/sadidur.792312427dc11e51f8f2.jpeg",
+    "index.html": "/Sadidur-portfolio/index.html",
+    "main.50f768b3.css.map": "/Sadidur-portfolio/static/css/main.50f768b3.css.map",
+    "main.f54135d4.js.map": "/Sadidur-portfolio/static/js/main.f54135d4.js.map"
   },
   "entrypoints": [
     "static/css/main.50f768b3.css",
-    "static/js/main.d368aa95.js"
+    "static/js/main.f54135d4.js"
   ]
 }
