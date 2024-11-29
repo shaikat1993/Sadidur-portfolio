@@ -6,14 +6,16 @@ import Tech from './Tech';
 import Works from './Works';
 import Contact from './Contact';
 import StarsCanvas from './canvas/Stars';
+import Footer from './Footer';
 
 export {
-  Navbar,
   Hero,
+  Navbar,
   About,
-  Experience,
   Tech,
+  Experience,
   Works,
   Contact,
+  Footer,
   StarsCanvas,
 };

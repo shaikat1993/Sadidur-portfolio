@@ -61,6 +61,7 @@ const ExperienceCard = ({ experience }) => {
 };
 
 const Experience = () => {
+  const { isDarkMode } = useTheme();
   return (
     <section className="relative w-full h-full mx-auto">
       <div className={`${styles.padding} max-w-7xl mx-auto relative z-0`}>
@@ -78,7 +79,9 @@ const Experience = () => {
         </motion.div>
 
         <div className="mt-20 flex flex-col">
-          <VerticalTimeline>
+          <VerticalTimeline
+            lineColor="color-mix(in srgb, var(--text-primary) 10%, transparent)"
+          >
             {experiences.map((experience, index) => (
               <ExperienceCard key={index} experience={experience} />
             ))}
