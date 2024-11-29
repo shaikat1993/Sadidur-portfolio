@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { styles } from "../styles";
 import { iphone } from "../assets";
+import { TypeAnimation } from 'react-type-animation';
 
 const Hero = () => {
   return (
@@ -15,18 +16,33 @@ const Hero = () => {
       {/* Main Content */}
       <div className={`${styles.paddingX} absolute inset-0 top-[120px] max-w-7xl mx-auto flex flex-row items-start gap-5`}>
         <div className="flex flex-col justify-center items-center mt-5">
-          <div className="w-5 h-5 rounded-full bg-[#915eff]" />
+          <div className="w-5 h-5 rounded-full bg-[var(--text-accent)]" />
           <div className="w-1 sm:h-80 h-40 violet-gradient" />
         </div>
 
         <div className="flex flex-row justify-between items-center w-full">
           <div className="flex-1 z-20">
-            <h1 className={`${styles.heroHeadText} text-white`}>
+            <h1 className={`${styles.heroHeadText} text-[var(--text-primary)]`}>
               Hi, I'm <br />
-              <span className="text-[#915eff]">Sadidur Rahman</span>
+              <span className="text-[var(--text-accent)]">Sadidur Rahman</span>
             </h1>
-            <p className={`${styles.heroSubText} mt-2 text-white-100`}>
-              Senior iOS Developer & Full Stack Engineer <br className="sm:block hidden" />
+            <div className={`${styles.heroSubText} mt-2 text-[var(--text-secondary)] flex items-center gap-2`}>
+              <span>I am a</span>
+              <TypeAnimation
+                sequence={[
+                  'Senior iOS Developer',
+                  2000,
+                  'Full Stack Engineer',
+                  2000,
+                ]}
+                speed={50}
+                repeat={Infinity}
+                wrapper="span"
+                cursor={true}
+                deletionSpeed={65}
+              />
+            </div>
+            <p className="mt-2 text-[var(--text-secondary)] text-[17px]">
               with expertise in mobile and web development
             </p>
           </div>
@@ -34,8 +50,8 @@ const Hero = () => {
           {/* Device Showcase */}
           <div className="relative w-[400px] h-[600px] hidden md:block perspective-[2000px]">
             {/* Corner Decorations */}
-            <div className="absolute top-0 right-0 w-20 h-20 border-t-2 border-r-2 border-purple-500/50 rounded-tr-lg" />
-            <div className="absolute bottom-0 left-0 w-20 h-20 border-b-2 border-l-2 border-purple-500/50 rounded-bl-lg" />
+            <div className="absolute top-0 right-0 w-20 h-20 border-t-2 border-r-2 border-[var(--text-accent)]/50 rounded-tr-lg" />
+            <div className="absolute bottom-0 left-0 w-20 h-20 border-b-2 border-l-2 border-[var(--text-accent)]/50 rounded-bl-lg" />
             
             {/* Device Container */}
             <motion.div
@@ -55,7 +71,7 @@ const Hero = () => {
               }}
             >
               {/* Glassmorphism Card */}
-              <div className="absolute inset-0 bg-white/10 backdrop-blur-lg rounded-2xl border border-white/20 shadow-xl" />
+              <div className="absolute inset-0 bg-[var(--text-primary)]/10 backdrop-blur-lg rounded-2xl border border-[var(--text-primary)]/20 shadow-xl" />
               
               {/* Device Frame */}
               <div className="absolute inset-10 bg-black/80 rounded-[2rem] p-2 shadow-2xl">
@@ -68,7 +84,7 @@ const Hero = () => {
                   />
                   
                   {/* Screen Reflection */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-transparent via-white/5 to-transparent pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-transparent via-[var(--text-primary)]/5 to-transparent pointer-events-none" />
                 </div>
               </div>
             </motion.div>
@@ -79,7 +95,7 @@ const Hero = () => {
       {/* Scroll Indicator */}
       <div className="absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center">
         <a href="#about">
-          <div className="w-[35px] h-[64px] rounded-3xl border-4 border-secondary flex justify-center items-start p-2">
+          <div className="w-[35px] h-[64px] rounded-3xl border-4 border-[var(--text-secondary)] flex justify-center items-start p-2">
             <motion.div
               animate={{
                 y: [0, 24, 0],
@@ -89,7 +105,7 @@ const Hero = () => {
                 repeat: Infinity,
                 repeatType: "loop",
               }}
-              className="w-3 h-3 rounded-full bg-secondary mb-1"
+              className="w-3 h-3 rounded-full bg-[var(--text-secondary)] mb-1"
             />
           </div>
         </a>

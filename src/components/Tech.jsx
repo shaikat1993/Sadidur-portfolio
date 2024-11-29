@@ -22,10 +22,10 @@ const Tech = () => {
   return (
     <section id="tech" className={`${styles.padding} max-w-7xl mx-auto relative z-0`}>
       <motion.div variants={textVariant()}>
-        <p className={`${styles.sectionSubText} text-secondary`}>
+        <p className={`${styles.sectionSubText} text-[var(--text-secondary)]`}>
           My technical expertise
         </p>
-        <h2 className={`${styles.sectionHeadText} text-primary`}>
+        <h2 className={`${styles.sectionHeadText} text-[var(--text-primary)]`}>
           Technologies.
         </h2>
       </motion.div>

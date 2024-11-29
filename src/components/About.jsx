@@ -7,7 +7,7 @@ const About = () => {
     <div id="about" className={`${styles.padding} max-w-7xl mx-auto relative z-0`}>
       <motion.div>
         <p className={styles.sectionSubText}>Introduction</p>
-        <h2 className={styles.sectionHeadText}>Overview.</h2>
+        <h2 className={`${styles.sectionHeadText} text-[var(--text-primary)]`}>Overview.</h2>
       </motion.div>
 
       <motion.p
