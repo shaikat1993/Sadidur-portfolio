@@ -225,7 +225,7 @@ export const projects = {
       icon: FaReact,
       isPersonalProject: true,
       source_code_link: "https://github.com/shaikat1993/Sadidur-portfolio",
-      live_link: "https://sadidur.com"
+      live_link: "https://shaikat1993.github.io/Sadidur-portfolio"
     },
     {
       name: "Node.js Exercise API",
