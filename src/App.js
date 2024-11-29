@@ -1,13 +1,13 @@
-import React from "react";
+import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import { About, Contact, Experience, Hero, Navbar, Tech, Works, StarsCanvas } from './components';
+import { About, Contact, Experience, Hero, Navbar, Tech, Works } from './components';
 import { ThemeProvider } from './context/ThemeContext';
 
 const App = () => {
   return (
     <ThemeProvider>
       <BrowserRouter>
-        <div className="relative z-0 bg-primary dark:bg-gray-900">
+        <div className="relative z-0 bg-primary transition-colors duration-300">
           <div>
             <Navbar />
             <Hero />
@@ -18,7 +18,6 @@ const App = () => {
           <Works />
           <div className="relative z-0">
             <Contact />
-            <StarsCanvas />
           </div>
         </div>
       </BrowserRouter>

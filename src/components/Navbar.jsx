@@ -100,7 +100,7 @@ const Navbar = () => {
         styles.paddingX
       } w-full flex items-center py-5 fixed top-0 z-20 transition-all duration-300 ${
         scrolled
-          ? "bg-primary/80 dark:bg-gray-900/80 backdrop-blur-md"
+          ? "bg-paper/80 backdrop-blur-md border-b border-border"
           : "bg-transparent"
       }`}
     >
@@ -118,7 +118,7 @@ const Navbar = () => {
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ duration: 0.5 }}
-            className="w-12 h-12 rounded-full overflow-hidden border-2 border-purple-500/50 shadow-lg"
+            className="w-12 h-12 rounded-full overflow-hidden border-2 border-accent/50 shadow-lg"
           >
             <img
               src={sadidur}
@@ -131,11 +131,11 @@ const Navbar = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <p className="text-[18px] font-bold cursor-pointer flex dark:text-white">
+            <p className="text-[18px] font-bold cursor-pointer flex text-primary">
               Sadidur &nbsp;
               <span className="hidden sm:block">Rahman</span>
             </p>
-            <p className="text-[12px] text-secondary dark:text-gray-400">
+            <p className="text-[12px] text-secondary">
               iOS Developer
             </p>
           </motion.div>
@@ -150,9 +150,9 @@ const Navbar = () => {
                 whileTap={{ scale: 0.95 }}
                 className={`${
                   active === nav.id
-                    ? "text-white"
-                    : "text-secondary dark:text-gray-400"
-                } hover:text-white dark:hover:text-white text-[18px] font-medium cursor-pointer transition-colors`}
+                    ? "text-primary"
+                    : "text-secondary"
+                } hover:text-primary text-[18px] font-medium cursor-pointer transition-colors`}
                 onClick={() => scrollTo(nav)}
               >
                 {nav.title}
@@ -164,7 +164,7 @@ const Navbar = () => {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
             onClick={toggleTheme}
-            className="p-2 rounded-full bg-purple-500/10 hover:bg-purple-500/20 transition-colors"
+            className="p-2 rounded-full bg-accent/10 hover:bg-accent/20 transition-colors"
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ duration: 0.5, delay: 0.4 }}
@@ -172,7 +172,7 @@ const Navbar = () => {
             {isDarkMode ? (
               <HiSun className="w-6 h-6 text-yellow-400" />
             ) : (
-              <HiMoon className="w-6 h-6 text-purple-600" />
+              <HiMoon className="w-6 h-6 text-accent" />
             )}
           </motion.button>
         </div>

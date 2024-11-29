@@ -5,7 +5,7 @@ import { projects } from "../constants";
 import { fadeIn, textVariant } from "../utils/motion";
 import { Tilt } from "react-tilt";
 
-const ProjectCard = ({ index, name, description, tags }) => {
+const ProjectCard = ({ index, name, description, tags, image, source_code_link }) => {
   return (
     <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
       <Tilt
@@ -14,18 +14,30 @@ const ProjectCard = ({ index, name, description, tags }) => {
           scale: 1,
           speed: 450,
         }}
-        className="bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full"
+        className="bg-paper p-5 rounded-2xl sm:w-[360px] w-full border border-border shadow-lg"
       >
-        <div className="relative w-full h-[230px]">
-          <h3 className="text-white font-bold text-[24px]">{name}</h3>
-          <p className="mt-2 text-secondary text-[14px]">{description}</p>
+        <div className="relative w-full h-[230px] cursor-pointer" onClick={() => window.open(source_code_link, "_blank")}>
+          <img
+            src={image}
+            alt={name}
+            className="w-full h-full object-cover rounded-2xl"
+          />
+          <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-black/60 to-transparent flex items-end">
+            <div className="p-4">
+              <h3 className="text-white font-bold text-[24px]">{name}</h3>
+              <p className="mt-2 text-white/90 text-[14px]">{description}</p>
+            </div>
+          </div>
         </div>
 
         <div className="mt-4 flex flex-wrap gap-2">
           {tags.map((tag) => (
-            <p key={`${name}-${tag.name}`} className={`text-[14px] ${tag.color}`}>
+            <span
+              key={tag.name}
+              className={`text-[14px] font-medium px-2 py-1 rounded-full bg-accent/10 text-accent`}
+            >
               #{tag.name}
-            </p>
+            </span>
           ))}
         </div>
       </Tilt>
@@ -37,8 +49,12 @@ const Works = () => {
   return (
     <section id="works" className={`${styles.padding} max-w-7xl mx-auto relative z-0`}>
       <motion.div variants={textVariant()}>
-        <p className={styles.sectionSubText}>My work</p>
-        <h2 className={styles.sectionHeadText}>Projects.</h2>
+        <p className={`${styles.sectionSubText} text-secondary`}>
+          My work
+        </p>
+        <h2 className={`${styles.sectionHeadText} text-primary`}>
+          Projects.
+        </h2>
       </motion.div>
 
       <div className="w-full flex">
@@ -55,7 +71,11 @@ const Works = () => {
 
       <div className="mt-20 flex flex-wrap gap-7">
         {projects.map((project, index) => (
-          <ProjectCard key={`project-${index}`} index={index} {...project} />
+          <ProjectCard 
+            key={`project-${index}`} 
+            index={index} 
+            {...project} 
+          />
         ))}
       </div>
     </section>

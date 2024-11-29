@@ -13,14 +13,14 @@ const Hero = () => {
       </div>
 
       {/* Main Content */}
-      <div className={`relative ${styles.paddingX} max-w-7xl mx-auto flex flex-row items-start gap-5 pt-[120px]`}>
+      <div className={`${styles.paddingX} absolute inset-0 top-[120px] max-w-7xl mx-auto flex flex-row items-start gap-5`}>
         <div className="flex flex-col justify-center items-center mt-5">
           <div className="w-5 h-5 rounded-full bg-[#915eff]" />
           <div className="w-1 sm:h-80 h-40 violet-gradient" />
         </div>
 
         <div className="flex flex-row justify-between items-center w-full">
-          <div className="flex-1">
+          <div className="flex-1 z-20">
             <h1 className={`${styles.heroHeadText} text-white`}>
               Hi, I'm <br />
               <span className="text-[#915eff]">Sadidur Rahman</span>
@@ -32,7 +32,7 @@ const Hero = () => {
           </div>
 
           {/* Device Showcase */}
-          <div className="relative w-[400px] h-[600px] hidden md:block">
+          <div className="relative w-[400px] h-[600px] hidden md:block perspective-[2000px]">
             {/* Corner Decorations */}
             <div className="absolute top-0 right-0 w-20 h-20 border-t-2 border-r-2 border-purple-500/50 rounded-tr-lg" />
             <div className="absolute bottom-0 left-0 w-20 h-20 border-b-2 border-l-2 border-purple-500/50 rounded-bl-lg" />
@@ -50,20 +50,17 @@ const Hero = () => {
                 ease: "easeInOut",
               }}
               className="relative w-full h-full"
+              style={{
+                transformStyle: "preserve-3d",
+              }}
             >
               {/* Glassmorphism Card */}
               <div className="absolute inset-0 bg-white/10 backdrop-blur-lg rounded-2xl border border-white/20 shadow-xl" />
               
               {/* Device Frame */}
-              <div className="absolute inset-10 rounded-[2rem] p-2 shadow-2xl overflow-hidden">
-                {/* Animated Border */}
-                <div className="absolute inset-0 rounded-[2rem]">
-                  <div className="absolute inset-0 bg-gradient-to-r from-teal-500/20 via-purple-500/20 to-pink-500/20 animate-gradient rounded-[2rem]" />
-                  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/5 to-transparent animate-shimmer rounded-[2rem]" />
-                </div>
-
+              <div className="absolute inset-10 bg-black/80 rounded-[2rem] p-2 shadow-2xl">
                 {/* Screen Content */}
-                <div className="relative w-full h-full rounded-[1.8rem] overflow-hidden bg-black/90">
+                <div className="relative w-full h-full rounded-[1.8rem] overflow-hidden">
                   <img
                     src={iphone}
                     alt="iPhone Animation"
