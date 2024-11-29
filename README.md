@@ -104,7 +104,7 @@ Contributions, issues, and feature requests are welcome! Feel free to check the 
 
 Your Name - [your.email@example.com](mailto:your.email@example.com)
 
-Project Link: [https://github.com/yourusername/portfolio](https://github.com/yourusername/portfolio)
+Project Link: [https://github.com/shaikat1993/Sadidur-portfolio.git](https://github.com/shaikat1993/Sadidur-portfolio.git)
 
 ## 🙏 Acknowledgments
 
