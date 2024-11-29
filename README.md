@@ -1,6 +1,6 @@
 # Modern Portfolio Website
 
-A sleek, responsive portfolio website built with React, Tailwind CSS, and Framer Motion.
+A sleek, responsive portfolio website built with React, Tailwind CSS, and Framer Motion by Md. Sadidur Rahman.
 
 ## 🌟 Features
 
@@ -23,7 +23,7 @@ A sleek, responsive portfolio website built with React, Tailwind CSS, and Framer
 
 1. Clone the repository
 ```bash
-git clone https://github.com/yourusername/portfolio.git
+git clone https://github.com/shaikat1993/Sadidur-portfolio.git
 cd portfolio
 ```
 
@@ -98,13 +98,13 @@ This project is open source and available under the MIT License.
 
 ## 🤝 Contributing
 
-Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/yourusername/portfolio/issues).
+Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/shaikat1993/Sadidur-portfolio/issues).
 
 ## 📧 Contact
 
-Your Name - [your.email@example.com](mailto:your.email@example.com)
+Md. Sadidur Rahman - [sadidur.rahman@tuni.fi](mailto:sadidur.rahman@tuni.fi)
 
-Project Link: [https://github.com/yourusername/portfolio](https://github.com/yourusername/portfolio)
+Project Link: [https://github.com/shaikat1993/Sadidur-portfolio](https://github.com/shaikat1993/Sadidur-portfolio)
 
 ## 🙏 Acknowledgments
 
