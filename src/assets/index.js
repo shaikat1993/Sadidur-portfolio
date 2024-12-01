@@ -9,9 +9,9 @@ import wind from './company/wind.png';
 import matrix from './company/matrix.png';
 import glostars from './company/glostars.png';
 import datasoft from './company/datasoft.png';
+import resume from './Md._Sadidur_Rahman_Resume.pdf';
 
 // Define public URLs for assets
-const resume = process.env.PUBLIC_URL + '/assets/Md._Sadidur_Rahman_Resume.pdf';
 
 export {
   sadidur,
