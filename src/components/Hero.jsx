@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { styles } from "../styles";
-import { iphone, resume } from "../assets";
+import { profile, resume } from "../assets";
 import { TypeAnimation } from 'react-type-animation';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { SiLeetcode } from 'react-icons/si';
@@ -132,18 +132,32 @@ const Hero = () => {
                 {/* Glassmorphism Card */}
                 <div className="absolute inset-0 bg-[var(--text-primary)]/10 backdrop-blur-lg rounded-2xl border border-[var(--text-primary)]/20 shadow-xl" />
                 
-                {/* Device Frame */}
-                <div className="absolute inset-10 bg-black/80 rounded-[2rem] p-2 shadow-2xl">
-                  {/* Screen Content */}
-                  <div className="relative w-full h-full rounded-[1.8rem] overflow-hidden">
-                    <img
-                      src={iphone}
-                      alt="iPhone Animation"
-                      className="w-full h-full object-cover"
-                    />
+                {/* Animated Gradient Border */}
+                <div className="absolute inset-10 rounded-[3rem] p-[2px] shadow-2xl bg-gradient-to-br from-[var(--text-accent)] via-purple-500 to-pink-500 animate-gradient-xy overflow-hidden">
+                  {/* Device Frame */}
+                  <div className="relative w-full h-full bg-[var(--bg-paper)] rounded-[3rem] p-3 shadow-inner overflow-hidden">
+                    {/* iPhone Notch */}
+                    <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[150px] h-[30px] bg-black rounded-b-[20px] z-20 flex items-center justify-center">
+                      <div className="w-[50px] h-[4px] bg-[#222] rounded-full mx-2" />
+                      <div className="w-[8px] h-[8px] bg-[#222] rounded-full ml-2" />
+                    </div>
                     
-                    {/* Screen Reflection */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-transparent via-[var(--text-primary)]/5 to-transparent pointer-events-none" />
+                    {/* Side Buttons */}
+                    <div className="absolute top-[120px] -left-[3px] w-[3px] h-[60px] bg-[#222]" />
+                    <div className="absolute top-[190px] -left-[3px] w-[3px] h-[60px] bg-[#222]" />
+                    <div className="absolute top-[150px] -right-[3px] w-[3px] h-[80px] bg-[#222]" />
+                    
+                    {/* Screen Content */}
+                    <div className="relative w-full h-full rounded-[2.5rem] overflow-hidden bg-white">
+                      <img
+                        src={profile}
+                        alt="Profile Picture"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+
+                    {/* Home Indicator */}
+                    <div className="absolute bottom-[12px] left-1/2 transform -translate-x-1/2 w-[120px] h-[4px] bg-black rounded-full" />
                   </div>
                 </div>
               </motion.div>
@@ -158,7 +172,7 @@ const Hero = () => {
             onClick={(e) => {
               e.preventDefault();
               const aboutSection = document.querySelector('#about');
-              const offset = 0; // Adjust this value if you need some spacing
+              const offset = 0;
               const elementPosition = aboutSection.getBoundingClientRect().top;
               const offsetPosition = elementPosition + window.pageYOffset - offset;
 
