@@ -18,7 +18,7 @@ const Hero = () => {
         onClose={() => setIsPDFOpen(false)}
         pdfUrl={resume}
       />
-      <section className="relative w-full h-screen mx-auto overflow-hidden bg-hero-pattern">
+      <section className="relative w-full min-h-screen mx-auto overflow-hidden bg-hero-pattern">
         {/* Background Elements */}
         <div className="absolute inset-0">
           <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-purple-600/30 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob" />
@@ -27,13 +27,13 @@ const Hero = () => {
         </div>
 
         {/* Main Content */}
-        <div className={`${styles.paddingX} absolute inset-0 top-[120px] max-w-7xl mx-auto flex flex-row items-start gap-5`}>
+        <div className={`${styles.paddingX} relative pt-[120px] max-w-7xl mx-auto flex flex-row items-start gap-5`}>
           <div className="flex flex-col justify-center items-center mt-5">
             <div className="w-5 h-5 rounded-full bg-[var(--text-accent)]" />
             <div className="w-1 sm:h-80 h-40 violet-gradient" />
           </div>
 
-          <div className="flex flex-row justify-between items-center w-full">
+          <div className="flex flex-col md:flex-row justify-between items-center w-full">
             <div className="flex-1 z-20">
               <h1 className={`${styles.heroHeadText} text-[var(--text-primary)]`}>
                 Hi, I'm <br />
@@ -106,7 +106,63 @@ const Hero = () => {
               </div>
             </div>
 
-            {/* Device Showcase */}
+            {/* iPhone Animation - Mobile */}
+            <div className="mt-8 md:hidden">
+              <div className="relative w-[280px] h-[420px] sm:w-[320px] sm:h-[480px] perspective-[2000px] mx-auto">
+                {/* Corner Decorations */}
+                <div className="absolute top-0 right-0 w-12 h-12 sm:w-16 sm:h-16 border-t-2 border-r-2 border-[var(--text-accent)]/50 rounded-tr-lg" />
+                <div className="absolute bottom-0 left-0 w-12 h-12 sm:w-16 sm:h-16 border-b-2 border-l-2 border-[var(--text-accent)]/50 rounded-bl-lg" />
+                
+                {/* Device Container */}
+                <motion.div
+                  className="preserve-3d absolute inset-0"
+                  initial={{ rotateY: 25, rotateX: -10 }}
+                  animate={{
+                    rotateY: [-5, 15],
+                    rotateX: [-5, 5],
+                  }}
+                  transition={{
+                    duration: 6,
+                    repeat: Infinity,
+                    repeatType: "reverse",
+                    ease: "easeInOut",
+                  }}
+                >
+                  {/* Glass Effect Container */}
+                  <div className="absolute inset-0 bg-[var(--text-primary)]/10 backdrop-blur-lg rounded-2xl border border-[var(--text-primary)]/20 shadow-xl" />
+                  
+                  {/* Animated Gradient Border */}
+                  <div className="absolute inset-6 sm:inset-8 rounded-[2rem] sm:rounded-[2.5rem] p-[2px] shadow-2xl bg-gradient-to-br from-[var(--text-accent)] via-purple-500 to-pink-500 animate-gradient-xy overflow-hidden">
+                    {/* Device Frame */}
+                    <div className="relative w-full h-full bg-[var(--bg-paper)] rounded-[2rem] sm:rounded-[2.5rem] p-2 sm:p-2.5 shadow-inner overflow-hidden">
+                      {/* iPhone Notch */}
+                      <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[100px] sm:w-[120px] h-[20px] sm:h-[25px] bg-black rounded-b-[15px] sm:rounded-b-[18px] z-20 flex items-center justify-center">
+                        <div className="w-[35px] sm:w-[42px] h-[3px] sm:h-[3.5px] bg-[#222] rounded-full mx-2" />
+                        <div className="w-[6px] sm:w-[7px] h-[6px] sm:h-[7px] bg-[#222] rounded-full ml-2" />
+                      </div>
+                      
+                      {/* Side Buttons */}
+                      <div className="absolute top-[80px] sm:top-[100px] -left-[2px] sm:-left-[2.5px] w-[2px] sm:w-[2.5px] h-[40px] sm:h-[50px] bg-[#222]" />
+                      <div className="absolute top-[130px] sm:top-[160px] -left-[2px] sm:-left-[2.5px] w-[2px] sm:w-[2.5px] h-[40px] sm:h-[50px] bg-[#222]" />
+                      <div className="absolute top-[100px] sm:top-[125px] -right-[2px] sm:-right-[2.5px] w-[2px] sm:w-[2.5px] h-[60px] sm:h-[70px] bg-[#222]" />
+                      
+                      {/* Screen Content */}
+                      <div className="relative w-full h-full rounded-[1.8rem] sm:rounded-[2.2rem] overflow-hidden bg-white">
+                        <img
+                          src={profile}
+                          alt="Profile Picture"
+                          className="w-full h-full object-cover" />
+                      </div>
+
+                      {/* Home Indicator */}
+                      <div className="absolute bottom-[8px] sm:bottom-[10px] left-1/2 transform -translate-x-1/2 w-[80px] sm:w-[100px] h-[3px] sm:h-[3.5px] bg-black rounded-full" />
+                    </div>
+                  </div>
+                </motion.div>
+              </div>
+            </div>
+
+            {/* Desktop iPhone Animation */}
             <div className="relative w-[400px] h-[600px] hidden md:block perspective-[2000px]">
               {/* Corner Decorations */}
               <div className="absolute top-0 right-0 w-20 h-20 border-t-2 border-r-2 border-[var(--text-accent)]/50 rounded-tr-lg" />
@@ -165,24 +221,10 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Scroll Indicator */}
-        <div className="absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center">
-          <a 
-            href="#about"
-            onClick={(e) => {
-              e.preventDefault();
-              const aboutSection = document.querySelector('#about');
-              const offset = 0;
-              const elementPosition = aboutSection.getBoundingClientRect().top;
-              const offsetPosition = elementPosition + window.pageYOffset - offset;
-
-              window.scrollTo({
-                top: offsetPosition,
-                behavior: "smooth"
-              });
-            }}
-          >
-            <div className="w-[35px] h-[64px] rounded-3xl border-4 border-[var(--text-secondary)] flex justify-center items-start p-2 hover:border-[var(--text-accent)] transition-colors duration-300">
+        {/* Scroll Button */}
+        <div className="relative w-full flex justify-center items-center mt-10 mb-8">
+          <a href="#about">
+            <div className="w-[35px] h-[64px] rounded-3xl border-4 border-[var(--text-secondary)] flex justify-center items-start p-2">
               <motion.div
                 animate={{
                   y: [0, 24, 0],
@@ -192,7 +234,7 @@ const Hero = () => {
                   repeat: Infinity,
                   repeatType: "loop",
                 }}
-                className="w-3 h-3 rounded-full bg-[var(--text-secondary)] mb-1 group-hover:bg-[var(--text-accent)]"
+                className="w-3 h-3 rounded-full bg-[var(--text-secondary)] mb-1"
               />
             </div>
           </a>
