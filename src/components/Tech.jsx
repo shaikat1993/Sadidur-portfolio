@@ -46,7 +46,7 @@ const TechCard = ({ icon: Icon, name, index, proficiency }) => {
   return (
     <motion.div
       variants={fadeIn("up", "spring", index * 0.1, 0.75)}
-      className="relative w-[160px] sm:w-[180px] aspect-square"
+      className="relative w-[130px] sm:w-[160px] md:w-[180px] aspect-square mx-auto"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       whileHover={{ scale: 1.05 }}
@@ -273,7 +273,7 @@ const CategorySection = ({ category, skills }) => {
       </motion.div>
 
       {/* Skills Grid */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 sm:gap-8 p-8">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6 md:gap-8 p-4 sm:p-8">
         {skills.map((skill, index) => (
           <TechCard key={skill.name} index={index} {...skill} />
         ))}
