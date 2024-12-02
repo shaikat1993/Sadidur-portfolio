@@ -1,246 +1,329 @@
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { FaGithub, FaAppStore, FaGlobe, FaApple, FaReact, FaArrowRight } from "react-icons/fa";
-import { styles } from "../styles";
-import { projects } from "../constants";
-import { SectionWrapper } from "../hoc";
-import { fadeIn, textVariant } from "../utils/motion";
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { styles } from '../styles';
+import { projects } from '../constants';
+import { fadeIn, textVariant } from '../utils/motion';
+import { useTheme } from '../context/ThemeContext';
+import { FaGithub, FaAppStore } from 'react-icons/fa';
 
-const ProjectCard = ({ project, index, projectType }) => {
+const ProjectCard = ({ project, index }) => {
   const [isHovered, setIsHovered] = useState(false);
-  const { name, description, tags, icon, source_code_link, app_store_link, live_link, isPersonalProject } = project;
+  const { theme } = useTheme();
+  const { name, description, tags, icon: Icon, source_code_link, app_store_link, isPersonalProject } = project;
 
   return (
-    <motion.div 
-      variants={fadeIn("up", "spring", index * 0.2, 0.75)}
-      className="w-full sm:w-[360px]"
+    <motion.div
+      variants={fadeIn("up", "spring", index * 0.1, 0.75)}
+      className="w-full h-full"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
       whileHover={{ scale: 1.02 }}
-      transition={{ type: "spring", stiffness: 300 }}
-      onHoverStart={() => setIsHovered(true)}
-      onHoverEnd={() => setIsHovered(false)}
+      whileTap={{ scale: 0.98 }}
     >
-      <div className="bg-[var(--bg-paper)] p-5 rounded-2xl w-full border border-[var(--border-color)] shadow-lg hover:shadow-xl transition-all duration-300 h-full backdrop-blur-sm bg-opacity-80 relative overflow-hidden">
-        <motion.div
-          className="absolute inset-0 bg-gradient-to-r from-[var(--text-accent)] to-transparent opacity-0"
-          animate={{ opacity: isHovered ? 0.1 : 0 }}
-          transition={{ duration: 0.3 }}
-        />
+      <motion.div className="w-full h-full min-h-[300px] rounded-2xl bg-paper/30 backdrop-blur-xl border border-[var(--border-color)] p-5 sm:p-7 overflow-hidden group cursor-pointer relative flex flex-col">
+        {/* Hexagon Background Pattern */}
+        <div className="absolute inset-0 opacity-10">
+          {[...Array(20)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute w-12 h-12 border border-[var(--text-secondary)]/20"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                transform: `rotate(${Math.random() * 360}deg)`,
+                clipPath: "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)"
+              }}
+            />
+          ))}
+        </div>
 
-        <div className="relative w-full h-[230px] flex items-center justify-center group">
-          <motion.div
-            initial={{ scale: 1, rotate: 0 }}
-            animate={{ 
-              scale: isHovered ? 1.1 : 1,
-              rotate: isHovered && projectType === 'web' ? 360 : 0
-            }}
-            transition={{ 
-              type: "spring", 
-              stiffness: 300,
-              rotate: { duration: 20, repeat: Infinity, ease: "linear" }
-            }}
-            className="relative z-10"
-          >
-            {isPersonalProject ? (
-              projectType === 'ios' ? (
-                <FaApple className="w-32 h-32 text-[var(--text-primary)] transition-all duration-300 group-hover:text-[var(--text-accent)]" />
-              ) : (
-                project.icon && <project.icon className="w-32 h-32 text-[var(--text-primary)] transition-all duration-300 group-hover:text-[var(--text-accent)]" />
-              )
-            ) : (
-              <img
-                src={icon}
-                alt={name}
-                className="w-full h-full object-contain rounded-2xl p-2 transition-all duration-300 group-hover:scale-110"
-              />
-            )}
-          </motion.div>
+        {/* Animated Gradient Background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[var(--text-accent)]/20 via-transparent to-[var(--text-accent)]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+          <div className="absolute inset-0 animate-spin-slow bg-gradient-to-r from-transparent via-[var(--text-primary)]/5 to-transparent" />
+        </div>
 
-          <div className="absolute inset-0 flex justify-end m-3 gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            {source_code_link && (
-              <motion.div
-                whileHover={{ scale: 1.1, rotate: 360 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => window.open(source_code_link, "_blank")}
-                className="black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer bg-[var(--bg-accent)] hover:bg-[var(--text-accent)] transition-colors duration-300"
+        <div className="relative flex flex-col flex-grow">
+          {/* Icon and Title */}
+          <div className="flex items-center gap-4 mb-4">
+            <motion.div
+              className="relative flex-shrink-0"
+              animate={{
+                y: [0, -5, 0],
+                rotateY: isHovered ? [0, 360] : 0
+              }}
+              transition={{
+                y: { duration: 2, repeat: Infinity, ease: "easeInOut" },
+                rotateY: { duration: 0.8, ease: "easeOut" }
+              }}
+            >
+              {/* Animated Border Container */}
+              <div className="relative p-[2px] rounded-xl overflow-hidden bg-gradient-to-r from-[var(--text-accent)] via-[var(--text-primary)] to-[var(--text-accent)] bg-[length:200%_100%] animate-border-flow">
+                {/* Icon Container */}
+                <div className="relative bg-[var(--bg-paper)] rounded-xl p-2">
+                  {typeof Icon === 'function' ? (
+                    <Icon className="w-10 h-10 text-[var(--text-accent)]" />
+                  ) : Icon ? (
+                    <img src={Icon} alt={name} className="w-10 h-10 object-contain" />
+                  ) : (
+                    <div className="w-10 h-10 bg-[var(--text-accent)]/10 rounded-xl flex items-center justify-center">
+                      <span className="text-[var(--text-accent)] text-xl font-bold">
+                        {name.charAt(0)}
+                      </span>
+                    </div>
+                  )}
+
+              
+                </div>
+
+                {/* Animated Corner Dots */}
+                <motion.div
+                  className="absolute w-1 h-1 bg-[var(--text-accent)] rounded-full top-0 left-0"
+                  animate={{
+                    scale: [1, 1.5, 1],
+                    opacity: [0.5, 1, 0.5],
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                />
+                <motion.div
+                  className="absolute w-1 h-1 bg-[var(--text-accent)] rounded-full top-0 right-0"
+                  animate={{
+                    scale: [1, 1.5, 1],
+                    opacity: [0.5, 1, 0.5],
+                  }}
+                  transition={{
+                    duration: 2,
+                    delay: 0.5,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                />
+                <motion.div
+                  className="absolute w-1 h-1 bg-[var(--text-accent)] rounded-full bottom-0 left-0"
+                  animate={{
+                    scale: [1, 1.5, 1],
+                    opacity: [0.5, 1, 0.5],
+                  }}
+                  transition={{
+                    duration: 2,
+                    delay: 1,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                />
+                <motion.div
+                  className="absolute w-1 h-1 bg-[var(--text-accent)] rounded-full bottom-0 right-0"
+                  animate={{
+                    scale: [1, 1.5, 1],
+                    opacity: [0.5, 1, 0.5],
+                  }}
+                  transition={{
+                    duration: 2,
+                    delay: 1.5,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                />
+              </div>
+            </motion.div>
+            <h3 className="text-[var(--text-primary)] font-bold text-[24px] line-clamp-2">{name}</h3>
+          </div>
+
+          {/* Description */}
+          <p className="mt-2 text-[var(--text-secondary)] text-[14px] line-clamp-4 flex-grow">{description}</p>
+
+          {/* Tags */}
+          <div className="mt-4 flex flex-wrap gap-2">
+            {tags.map((tag) => (
+              <span
+                key={`${name}-${tag.name}`}
+                className={`text-[14px] ${tag.color} px-2 py-1 rounded-full bg-[var(--bg-paper)]/50 border border-[var(--border-color)] backdrop-blur-sm`}
               >
-                <FaGithub className="w-1/2 h-1/2 object-contain" />
-              </motion.div>
+                #{tag.name}
+              </span>
+            ))}
+          </div>
+
+          {/* Links */}
+          <div className="mt-4 flex gap-4">
+            {source_code_link && (
+              <motion.a
+                href={source_code_link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[var(--text-accent)] hover:text-[var(--text-primary)] transition-colors flex items-center gap-2"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <FaGithub className="w-4 h-4" />
+                <span>GitHub</span>
+              </motion.a>
             )}
             {app_store_link && (
-              <motion.div
-                whileHover={{ scale: 1.1, rotate: 360 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => window.open(app_store_link, "_blank")}
-                className="black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer bg-[var(--bg-accent)] hover:bg-[var(--text-accent)] transition-colors duration-300"
+              <motion.a
+                href={app_store_link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[var(--text-accent)] hover:text-[var(--text-primary)] transition-colors flex items-center gap-2"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
               >
-                <FaAppStore className="w-1/2 h-1/2 object-contain" />
-              </motion.div>
-            )}
-            {live_link && (
-              <motion.div
-                whileHover={{ scale: 1.1, rotate: 360 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => window.open(live_link, "_blank")}
-                className="black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer bg-[var(--bg-accent)] hover:bg-[var(--text-accent)] transition-colors duration-300"
-              >
-                <FaGlobe className="w-1/2 h-1/2 object-contain" />
-              </motion.div>
+                <FaAppStore className="w-4 h-4" />
+                <span>App Store</span>
+              </motion.a>
             )}
           </div>
         </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="mt-5"
-        >
-          <motion.div
-            className="flex items-center gap-2 cursor-pointer group/title"
-            whileHover={{ x: 10 }}
-          >
-            <h3 className="text-[var(--text-primary)] font-bold text-[24px] transition-colors duration-300 group-hover/title:text-[var(--text-accent)]">
-              {name}
-            </h3>
-            <FaArrowRight className="w-5 h-5 opacity-0 group-hover/title:opacity-100 transition-all duration-300 text-[var(--text-accent)]" />
-          </motion.div>
-          <p className="mt-2 text-[var(--text-secondary)] text-[14px]">{description}</p>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3 }}
-          className="mt-4 flex flex-wrap gap-2"
-        >
-          {tags.map((tag, index) => (
-            <motion.div
-              key={tag.name}
-              initial={{ opacity: 0, scale: 0.5 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.1 * index }}
-              whileHover={{ scale: 1.1, y: -2 }}
-              className="relative group/tag"
-            >
-              <span className="absolute -inset-2 bg-[var(--text-accent)] opacity-0 group-hover/tag:opacity-10 rounded-full transition-opacity duration-300" />
-              <p className="text-[14px] text-[var(--text-accent)] bg-[var(--bg-accent)] bg-opacity-10 px-3 py-1 rounded-full relative z-10">
-                #{tag.name}
-              </p>
-            </motion.div>
-          ))}
-        </motion.div>
-      </div>
+      </motion.div>
     </motion.div>
   );
 };
 
 const ProjectSection = ({ projectType, projects }) => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3,
-      },
-    },
-    exit: {
-      opacity: 0,
-      transition: {
-        duration: 0.5,
-      },
-    },
-  };
+  const projectList = projects[projectType] || [];
+  const { theme } = useTheme();
 
   return (
     <motion.div
-      variants={containerVariants}
-      initial="hidden"
-      animate="show"
-      exit="exit"
-      className="flex flex-wrap gap-7 justify-center"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+      className="w-full"
     >
-      {projects.map((project, index) => (
-        <ProjectCard
-          key={project.name}
-          index={index}
-          project={project}
-          projectType={projectType}
-        />
-      ))}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-7 mt-8">
+        {projectList.map((project, index) => (
+          <div key={project.name} className="h-full">
+            <ProjectCard
+              index={index}
+              project={project}
+            />
+          </div>
+        ))}
+      </div>
     </motion.div>
   );
 };
 
-const ToggleButton = ({ isActive, onClick, children }) => (
-  <motion.button
-    whileHover={{ scale: 1.05 }}
-    whileTap={{ scale: 0.95 }}
-    className={`px-6 py-2 rounded-full font-medium transition-all duration-300 relative group ${
-      isActive
-        ? "bg-[var(--text-accent)] text-white shadow-lg"
-        : "bg-transparent text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
-    }`}
-    onClick={onClick}
-  >
-    <span className="relative z-10">{children}</span>
-    <motion.span
-      className="absolute inset-0 rounded-full bg-[var(--text-accent)]"
-      initial={{ scale: 0 }}
-      animate={{ scale: isActive ? 1 : 0 }}
-      transition={{ type: "spring", stiffness: 300, damping: 20 }}
-    />
-  </motion.button>
-);
+const ToggleButton = ({ children, isActive, onClick }) => {
+  return (
+    <motion.button
+      onClick={onClick}
+      className={`relative px-4 py-2 rounded-full text-sm font-medium overflow-hidden ${
+        isActive ? 'text-white' : 'text-[var(--text-secondary)]'
+      }`}
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+    >
+      {/* Button Background */}
+      <motion.div
+        className="absolute inset-0 bg-gradient-to-r from-[var(--text-accent)] via-[var(--text-primary)] to-[var(--text-accent)] bg-[length:200%_100%]"
+        initial={{ x: "-100%" }}
+        animate={{ x: isActive ? 0 : "-100%" }}
+        transition={{ duration: 0.5 }}
+      />
+
+      {/* Button Content */}
+      <span className="relative z-10">{children}</span>
+
+      {/* Glow Effect */}
+      {isActive && (
+        <motion.div
+          className="absolute inset-0 bg-[var(--text-accent)] rounded-full filter blur-xl opacity-50"
+          animate={{ 
+            scale: [1, 1.2, 1],
+            opacity: [0.5, 0.3, 0.5]
+          }}
+          transition={{ 
+            duration: 2,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+      )}
+    </motion.button>
+  );
+};
 
 const Works = () => {
-  const [active, setActive] = useState("ios");
+  const [activeType, setActiveType] = useState("iOS Development");
+  const projectTypes = ["iOS Development", "Web Development"];
+  const { theme } = useTheme();
 
   return (
-    <section id="works" className={`${styles.padding} max-w-7xl mx-auto relative z-0`}>
+    <section id="works" className={`${styles.padding} max-w-7xl mx-auto relative z-0 overflow-hidden`}>
+      {/* Section Header */}
       <motion.div variants={textVariant()}>
-        <p className={`${styles.sectionSubText} text-[var(--text-secondary)]`}>
+        <p className={`${styles.sectionSubText} text-[var(--text-secondary)] font-medium mb-2`}>
           My work
         </p>
-        <h2 className={`${styles.sectionHeadText} text-[var(--text-primary)]`}>
+        <h2 className={`${styles.sectionHeadText} text-[var(--text-primary)] mb-10`}>
           Projects.
         </h2>
       </motion.div>
 
-      <motion.div 
-        className="w-full flex justify-center mt-10 mb-10"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
+      {/* Category Toggle Buttons */}
+      <motion.div
+        variants={fadeIn("", "", 0.1, 1)}
+        className="flex flex-col items-center mb-16"
       >
-        <div className="flex gap-4 p-1 rounded-full bg-[var(--bg-paper)] border border-[var(--border-color)] shadow-lg backdrop-blur-sm">
-          <ToggleButton
-            isActive={active === "ios"}
-            onClick={() => setActive("ios")}
+        <div className="w-full max-w-4xl">
+          <div 
+            className="grid grid-cols-2 gap-3 p-3 rounded-[20px] bg-[var(--bg-paper)]/80 backdrop-blur-xl border border-[var(--border-color)] shadow-card"
           >
-            iOS Development
-          </ToggleButton>
-          <ToggleButton
-            isActive={active === "web"}
-            onClick={() => setActive("web")}
-          >
-            Web Development
-          </ToggleButton>
+            {projectTypes.map((type) => (
+              <ToggleButton
+                key={type}
+                isActive={activeType === type}
+                onClick={() => setActiveType(type)}
+              >
+                {type}
+              </ToggleButton>
+            ))}
+          </div>
         </div>
       </motion.div>
 
-      <div className="mt-20">
-        <AnimatePresence mode="wait">
-          {active === "ios" && (
-            <ProjectSection key="ios" projectType="ios" projects={projects.ios} />
-          )}
-          {active === "web" && (
-            <ProjectSection key="web" projectType="web" projects={projects.web} />
-          )}
-        </AnimatePresence>
-      </div>
+      {/* Projects Display */}
+      <AnimatePresence mode="wait">
+        <ProjectSection 
+          key={activeType}
+          projectType={activeType} 
+          projects={projects}
+        />
+      </AnimatePresence>
+
+      {/* Background Elements */}
+      <motion.div 
+        className="absolute top-1/4 -left-1/4 w-96 h-96 rounded-full bg-[var(--text-accent)]/20 filter blur-[150px] pointer-events-none"
+        animate={{
+          scale: [1, 1.2, 1],
+          opacity: [0.2, 0.3, 0.2],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      />
+      <motion.div 
+        className="absolute bottom-1/4 -right-1/4 w-96 h-96 rounded-full bg-[var(--text-primary)]/20 filter blur-[150px] pointer-events-none"
+        animate={{
+          scale: [1, 1.3, 1],
+          opacity: [0.3, 0.2, 0.3],
+        }}
+        transition={{
+          duration: 8,
+          delay: 2,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      />
     </section>
   );
 };
 
-export default SectionWrapper(Works, "projects");
+export default Works;

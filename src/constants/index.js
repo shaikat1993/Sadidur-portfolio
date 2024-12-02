@@ -1,5 +1,80 @@
-import { FaReact, FaNode, FaGitAlt, FaSwift, FaMobile, FaServer, FaGlobe, FaDocker, FaFigma } from "react-icons/fa";
-import { SiNextdotjs, SiMongodb, SiPython, SiTailwindcss, SiJavascript, SiTypescript, SiFirebase } from "react-icons/si";
+import { 
+  FaReact, 
+  FaNode, 
+  FaGitAlt, 
+  FaSwift, 
+  FaMobile, 
+  FaServer, 
+  FaGlobe, 
+  FaDocker, 
+  FaFigma,
+  FaDatabase,
+  FaVrCardboard,
+  FaMap,
+  FaHtml5,
+  FaCss3,
+  FaJava,
+  FaGit,
+  FaAws,
+  FaLinux,
+  FaVial,
+  FaGithub,
+  FaGitlab,
+  FaBitbucket,
+  FaSlack,
+  FaDesktop,
+  FaJira,
+  FaTrello,
+  FaCloud,
+  FaMobileAlt, 
+  FaVideo, 
+  FaCube, 
+  FaCode
+} from "react-icons/fa";
+
+import {
+  SiNextdotjs,
+  SiExpress,
+  SiRedux,
+  SiTailwindcss,
+  SiJavascript,
+  SiTypescript,
+  SiPython,
+  SiMongodb,
+  SiFirebase,
+  SiCplusplus,
+  SiC,
+  SiCsharp,
+  SiMysql,
+  SiPostgresql,
+  SiRedis,
+  SiGithubactions,
+  SiSketch,
+  SiAdobexd,
+  SiZeplin,
+  SiJest,
+  SiCypress,
+  SiPostman,
+  SiVisualstudiocode,
+  SiXcode,
+  SiSourcetree,
+  SiSwift,
+  SiCoredata,
+  SiSqlite,
+  SiWebsocket,
+  SiArkit,
+  SiUikit,
+  SiCocoaPods,
+  SiIntellijidea,
+  SiEclipse,
+  SiPycharm,
+  SiQt,
+  SiNetbeans,
+  SiSwagger,
+  SiWorkplace,
+  SiMicroservices
+} from "react-icons/si";
+
 import { BsStack } from "react-icons/bs";
 import { TbBrandNextjs } from "react-icons/tb";
 import {
@@ -48,21 +123,118 @@ export const services = [
   { title: "Full Stack Developer", icon: BsStack },
 ];
 
-export const technologies = [
-  { name: "Swift", icon: FaSwift },
-  { name: "React", icon: FaReact },
-  { name: "Node.js", icon: FaNode },
-  { name: "MongoDB", icon: SiMongodb },
-  { name: "Next.js", icon: SiNextdotjs },
-  { name: "JavaScript", icon: SiJavascript },
-  { name: "TypeScript", icon: SiTypescript },
-  { name: "Firebase", icon: SiFirebase },
-  { name: "Python", icon: SiPython },
-  { name: "Git", icon: FaGitAlt },
-  { name: "Tailwind CSS", icon: SiTailwindcss },
-  { name: "Docker", icon: FaDocker },
-  { name: "Figma", icon: FaFigma },
-];
+export const technologies = {
+  programming: {
+    title: "Programming Languages",
+    description: "Core programming languages I'm proficient in, showcasing my strong foundation in software development",
+    skills: [
+      { name: "Swift", icon: SiSwift, proficiency: "Expert" },
+      { name: "Python", icon: SiPython, proficiency: "Advanced" },
+      { name: "JavaScript", icon: SiJavascript, proficiency: "Intermediate" },
+      { name: "TypeScript", icon: SiTypescript, proficiency: "Intermediate" },
+      { name: "Java", icon: FaJava, proficiency: "Advanced" },
+      { name: "C++", icon: SiCplusplus, proficiency: "Advanced" },
+      { name: "C", icon: SiC, proficiency: "Advanced" },
+      { name: "C#", icon: SiCsharp, proficiency: "Intermediate" }
+    ]
+  },
+
+  frontend: {
+    title: "Frontend Development",
+    description: "Modern web technologies and frameworks for building responsive, interactive user interfaces",
+    skills: [
+      { name: "React", icon: FaReact, proficiency: "Advanced" },
+      { name: "Next.js", icon: SiNextdotjs, proficiency: "Advanced" },
+      { name: "Tailwind", icon: SiTailwindcss, proficiency: "Intermediate" },
+      { name: "VS Code", icon: SiVisualstudiocode, proficiency: "Advanced" }
+    ]
+  },
+
+  backend: {
+    title: "Backend Development",
+    description: "Server-side technologies and frameworks for building scalable, robust applications",
+    skills: [
+      { name: "Node.js", icon: FaNode, proficiency: "Advanced" },
+      { name: "Express", icon: SiExpress, proficiency: "Advanced" },
+      { name: "REST API", icon: FaServer, proficiency: "Advanced" },
+    ]
+  },
+
+  mobile: {
+    title: "iOS Development",
+    description: "Comprehensive iOS development stack and frameworks",
+    skills: [
+      { name: "Swift", icon: SiSwift, proficiency: "Expert" },
+      { name: "UIKit", icon: FaMobileAlt, proficiency: "Expert" },
+      { name: "Core Data", icon: FaDatabase, proficiency: "Expert" },
+      { name: "AVFoundation", icon: FaVideo, proficiency: "Intermediate" },
+      { name: "ARKit", icon: FaVrCardboard, proficiency: "Advanced" },
+      { name: "CocoaPods", icon: FaCube, proficiency: "Expert" },
+      { name: "Xcode", icon: SiXcode, proficiency: "Expert" }
+    ]
+  },
+
+  database: {
+    title: "Database & Storage",
+    description: "Database management systems and cloud storage solutions",
+    skills: [
+      { name: "Core Data", icon: FaDatabase, proficiency: "Expert" },
+      { name: "Firebase", icon: SiFirebase, proficiency: "Expert" },
+      { name: "MySQL", icon: SiMysql, proficiency: "Advanced" },
+      { name: "SQLite", icon: SiSqlite, proficiency: "Advanced" }
+    ]
+  },
+
+  devops: {
+    title: "DevOps & Cloud",
+    description: "Tools and platforms for continuous integration, deployment, and cloud infrastructure",
+    skills: [
+      { name: "Git", icon: FaGit, proficiency: "Expert" },
+      { name: "Docker", icon: FaDocker, proficiency: "Advanced" },
+      { name: "CI/CD", icon: SiGithubactions, proficiency: "Advanced" },
+      { name: "Linux", icon: FaLinux, proficiency: "Intermediate" },
+      { name: "Cloud Services", icon: FaCloud, proficiency: "Intermediate" }
+    ]
+  },
+
+  tools: {
+    title: "Development Tools",
+    description: "IDEs and development tools for efficient coding",
+    skills: [
+      { name: "Xcode", icon: SiXcode, proficiency: "Expert" },
+      { name: "VS Code", icon: SiVisualstudiocode, proficiency: "Expert" },
+      { name: "IntelliJ", icon: SiIntellijidea, proficiency: "Advanced" },
+      { name: "PyCharm", icon: SiPycharm, proficiency: "Advanced" },
+      { name: "Qt Creator", icon: SiQt, proficiency: "Advanced" },
+      { name: "NetBeans", icon: FaCode, proficiency: "Advanced" }
+    ]
+  },
+
+  testing: {
+    title: "Testing & API Tools",
+    description: "Testing frameworks and API development tools",
+    skills: [
+      { name: "Jest", icon: SiJest, proficiency: "Advanced" },
+      { name: "Postman", icon: SiPostman, proficiency: "Expert" },
+      { name: "Swagger", icon: SiSwagger, proficiency: "Advanced" }
+    ]
+  },
+
+  collaboration: {
+    title: "Version Control & Collaboration",
+    description: "Tools and platforms for code versioning and team collaboration",
+    skills: [
+      { name: "GitHub", icon: FaGithub, proficiency: "Expert" },
+      { name: "GitLab", icon: FaGitlab, proficiency: "Expert" },
+      { name: "Bitbucket", icon: FaBitbucket, proficiency: "Expert" },
+      { name: "SourceTree", icon: SiSourcetree, proficiency: "Expert" },
+      { name: "Jira", icon: FaJira, proficiency: "Advanced" },
+      { name: "Trello", icon: FaTrello, proficiency: "Advanced" },
+      { name: "Slack", icon: FaSlack, proficiency: "Expert" },
+      { name: "Workplace", icon: SiWorkplace, proficiency: "Advanced" }
+    ]
+  }
+};
 
 export const experiences = [
   {
@@ -144,7 +316,7 @@ export const experiences = [
 ];
 
 export const projects = {
-  ios: [
+  "iOS Development": [
     {
       name: "Pathao App",
       description: "A comprehensive super app offering ride-sharing, food delivery, and payment services. Led development of core features, implemented MapKit integration, and optimized app performance resulting in 4.5+ App Store rating.",
@@ -215,7 +387,7 @@ export const projects = {
       source_code_link: "https://github.com/shaikat1993/LeetCode",
     }
   ],
-  web: [
+  "Web Development": [
     {
       name: "Modern Portfolio",
       description: "Professional portfolio website showcasing my work experience and projects. Built with React, Tailwind CSS, and Framer Motion for smooth animations.",

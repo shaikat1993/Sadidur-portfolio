@@ -18,7 +18,7 @@ const Hero = () => {
         onClose={() => setIsPDFOpen(false)}
         pdfUrl={resume}
       />
-      <section className="relative w-full min-h-screen mx-auto overflow-hidden bg-hero-pattern">
+      <section className="relative w-full min-h-screen mx-auto overflow-hidden hero-background">
         {/* Background Elements */}
         <div className="absolute inset-0">
           <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-purple-600/30 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob" />

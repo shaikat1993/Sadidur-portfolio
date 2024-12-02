@@ -2,6 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  :root {
+    /* Light theme default variables */
+    --text-primary: #050816;
+    --text-secondary: #4a4a4a;
+    --text-accent: #915eff;
+    --bg-default: #ffffff;
+    --bg-paper: #f8f8f8;
+    --bg-accent: #f0f0f0;
+    --border-color: #e0e0e0;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+  }
+
+  [data-theme='dark'] {
+    --text-primary: #ffffff;
+    --text-secondary: #aaa6c3;
+    --text-accent: #915eff;
+    --bg-default: #050816;
+    --bg-paper: #0a0a1b;
+    --bg-accent: #151030;
+    --border-color: #2a2a3a;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -15,6 +40,14 @@
   margin-top: -100px;
   padding-bottom: 100px;
   display: block;
+}
+
+.hero-background {
+  background: linear-gradient(to bottom right, rgba(145, 94, 255, 0.2), rgba(0, 0, 0, 0.9)), 
+              radial-gradient(circle at center, rgba(145, 94, 255, 0.1) 0%, rgba(0, 0, 0, 0.8) 100%);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .black-gradient {
@@ -32,13 +65,9 @@
 }
 
 .violet-gradient {
-  background: #804dee;
-  background: linear-gradient(-90deg, #804dee 0%, rgba(60, 51, 80, 0) 100%);
-  background: -webkit-linear-gradient(
-    -90deg,
-    #804dee 0%,
-    rgba(60, 51, 80, 0) 100%
-  );
+  background: var(--text-accent);
+  background: linear-gradient(90deg, var(--text-accent) 0%, rgba(60, 51, 80, 0) 100%);
+  background: -webkit-linear-gradient(90deg, var(--text-accent) 0%, rgba(60, 51, 80, 0) 100%);
 }
 
 .green-pink-gradient {
@@ -79,6 +108,50 @@
   -webkit-text-fill-color: transparent;
 }
 
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+.transform-gpu {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform;
+}
+
+.translate-z-8 {
+  transform: translateZ(8px);
+}
+
+.translate-z-12 {
+  transform: translateZ(12px);
+}
+
+/* Enhanced glassmorphism */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Improved card hover state */
+.card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(145, 94, 255, 0.2);
+}
+
+/* Smooth transitions */
+.smooth-transition {
+  transition: all 0.3s ease-in-out;
+}
+
 @layer utilities {
   .animation-delay-2000 {
     animation-delay: 1s;
@@ -107,3 +180,117 @@
   animation: blob 7s infinite;
 }
 
+/* Circular Progress Animation */
+@keyframes progress {
+  0% {
+    stroke-dasharray: 0 283;
+  }
+}
+
+/* Floating Animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Glow Pulse Animation */
+@keyframes glowPulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.1);
+  }
+}
+
+/* Particle Animation */
+@keyframes particle {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--tx), var(--ty)) scale(0);
+    opacity: 0;
+  }
+}
+
+/* Hexagon Grid Animation */
+@keyframes hexagonFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(var(--rotation));
+  }
+  50% {
+    transform: translateY(-5px) rotate(calc(var(--rotation) + 5deg));
+  }
+}
+
+/* Enhanced Glassmorphism */
+.glass-morphism {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+/* Skill Level Colors */
+.skill-beginner { color: #ff0000; }
+.skill-intermediate { color: #ff8c00; }
+.skill-advanced { color: #ffd700; }
+.skill-proficient { color: #32cd32; }
+.skill-expert { color: #915eff; }
+
+/* Card Hover Effects */
+.tech-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(145, 94, 255, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+  .tech-card {
+    width: calc(50% - 1rem);
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .tech-card {
+    width: calc(33.333% - 1rem);
+  }
+}
+
+@media (min-width: 1025px) {
+  .tech-card {
+    width: calc(20% - 1rem);
+  }
+}
+
+@keyframes pulse-glow {
+  0% {
+    box-shadow: 0 0 5px var(--text-accent);
+  }
+  50% {
+    box-shadow: 0 0 20px var(--text-accent);
+  }
+  100% {
+    box-shadow: 0 0 5px var(--text-accent);
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
