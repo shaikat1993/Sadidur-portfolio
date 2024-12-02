@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Sadidur-portfolio/static/css/main.36aa9538.css",
-    "main.js": "/Sadidur-portfolio/static/js/main.ef48f856.js",
+    "main.js": "/Sadidur-portfolio/static/js/main.4aed05ee.js",
     "static/media/profile-pic.png": "/Sadidur-portfolio/static/media/profile-pic.90c959b41a5e549ab6ed.png",
     "static/media/datasoft.png": "/Sadidur-portfolio/static/media/datasoft.a0fd936018fe4073b941.png",
     "static/media/pathao.png": "/Sadidur-portfolio/static/media/pathao.92a78898db967a998917.png",
@@ -11,10 +11,10 @@
     "static/media/sadidur.jpeg": "/Sadidur-portfolio/static/media/sadidur.792312427dc11e51f8f2.jpeg",
     "index.html": "/Sadidur-portfolio/index.html",
     "main.36aa9538.css.map": "/Sadidur-portfolio/static/css/main.36aa9538.css.map",
-    "main.ef48f856.js.map": "/Sadidur-portfolio/static/js/main.ef48f856.js.map"
+    "main.4aed05ee.js.map": "/Sadidur-portfolio/static/js/main.4aed05ee.js.map"
   },
   "entrypoints": [
     "static/css/main.36aa9538.css",
-    "static/js/main.ef48f856.js"
+    "static/js/main.4aed05ee.js"
   ]
 }
