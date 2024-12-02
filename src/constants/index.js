@@ -1,4 +1,4 @@
-import { FaReact, FaNode, FaGitAlt, FaSwift, FaMobile, FaServer, FaGlobe } from "react-icons/fa";
+import { FaReact, FaNode, FaGitAlt, FaSwift, FaMobile, FaServer, FaGlobe, FaDocker, FaFigma } from "react-icons/fa";
 import { SiNextdotjs, SiMongodb, SiPython, SiTailwindcss, SiJavascript, SiTypescript, SiFirebase } from "react-icons/si";
 import { BsStack } from "react-icons/bs";
 import { TbBrandNextjs } from "react-icons/tb";
@@ -60,6 +60,8 @@ export const technologies = [
   { name: "Python", icon: SiPython },
   { name: "Git", icon: FaGitAlt },
   { name: "Tailwind CSS", icon: SiTailwindcss },
+  { name: "Docker", icon: FaDocker },
+  { name: "Figma", icon: FaFigma },
 ];
 
 export const experiences = [
