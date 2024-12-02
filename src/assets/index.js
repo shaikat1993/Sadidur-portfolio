@@ -9,7 +9,18 @@ import wind from './company/wind.png';
 import matrix from './company/matrix.png';
 import glostars from './company/glostars.png';
 import datasoft from './company/datasoft.png';
-import resume from './Md._Sadidur_Rahman_Resume.pdf';
+import resumePDF from './Md._Sadidur_Rahman_Resume.pdf';
+
+// Get the base URL for GitHub Pages deployment
+const getBaseUrl = () => {
+  // Check if we're in development or production
+  return process.env.NODE_ENV === 'production' 
+    ? '/portfolio' // Replace 'portfolio' with your repository name
+    : '';
+};
+
+// Create the resume URL with the correct base path
+const resume = `${getBaseUrl()}${resumePDF}`;
 
 // Define public URLs for assets
 
