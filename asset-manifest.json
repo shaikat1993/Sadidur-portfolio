@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Sadidur-portfolio/static/css/main.a0f2ec4a.css",
-    "main.js": "/Sadidur-portfolio/static/js/main.edc41b97.js",
+    "main.js": "/Sadidur-portfolio/static/js/main.382bc6db.js",
     "static/media/profile-pic.png": "/Sadidur-portfolio/static/media/profile-pic.90c959b41a5e549ab6ed.png",
     "static/media/Md._Sadidur_Rahman_Resume.pdf": "/Sadidur-portfolio/static/media/Md._Sadidur_Rahman_Resume.pdf",
     "static/media/datasoft.png": "/Sadidur-portfolio/static/media/datasoft.a0fd936018fe4073b941.png",
@@ -12,10 +12,10 @@
     "static/media/sadidur.jpeg": "/Sadidur-portfolio/static/media/sadidur.792312427dc11e51f8f2.jpeg",
     "index.html": "/Sadidur-portfolio/index.html",
     "main.a0f2ec4a.css.map": "/Sadidur-portfolio/static/css/main.a0f2ec4a.css.map",
-    "main.edc41b97.js.map": "/Sadidur-portfolio/static/js/main.edc41b97.js.map"
+    "main.382bc6db.js.map": "/Sadidur-portfolio/static/js/main.382bc6db.js.map"
   },
   "entrypoints": [
     "static/css/main.a0f2ec4a.css",
-    "static/js/main.edc41b97.js"
+    "static/js/main.382bc6db.js"
   ]
 }
