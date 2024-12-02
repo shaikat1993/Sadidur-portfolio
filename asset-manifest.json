@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Sadidur-portfolio/static/css/main.37ef4dea.css",
-    "main.js": "/Sadidur-portfolio/static/js/main.df592287.js",
+    "main.css": "/Sadidur-portfolio/static/css/main.b4a3a111.css",
+    "main.js": "/Sadidur-portfolio/static/js/main.57a87b08.js",
     "static/media/profile-pic.png": "/Sadidur-portfolio/static/media/profile-pic.90c959b41a5e549ab6ed.png",
     "static/media/datasoft.png": "/Sadidur-portfolio/static/media/datasoft.a0fd936018fe4073b941.png",
     "static/media/pathao.png": "/Sadidur-portfolio/static/media/pathao.92a78898db967a998917.png",
@@ -10,11 +10,11 @@
     "static/media/matrix.png": "/Sadidur-portfolio/static/media/matrix.93b8613a79ed0e0fbd94.png",
     "static/media/sadidur.jpeg": "/Sadidur-portfolio/static/media/sadidur.792312427dc11e51f8f2.jpeg",
     "index.html": "/Sadidur-portfolio/index.html",
-    "main.37ef4dea.css.map": "/Sadidur-portfolio/static/css/main.37ef4dea.css.map",
-    "main.df592287.js.map": "/Sadidur-portfolio/static/js/main.df592287.js.map"
+    "main.b4a3a111.css.map": "/Sadidur-portfolio/static/css/main.b4a3a111.css.map",
+    "main.57a87b08.js.map": "/Sadidur-portfolio/static/js/main.57a87b08.js.map"
   },
   "entrypoints": [
-    "static/css/main.37ef4dea.css",
-    "static/js/main.df592287.js"
+    "static/css/main.b4a3a111.css",
+    "static/js/main.57a87b08.js"
   ]
 }
