@@ -98,11 +98,11 @@ This project is open source and available under the MIT License.
 
 ## 🤝 Contributing
 
-Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/yourusername/portfolio/issues).
+Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/shaikat1993/Sadidur-portfolio/issues).
 
 ## 📧 Contact
 
-Your Name - [your.email@example.com](mailto:your.email@example.com)
+Your Name - [your.email@example.com](mailto:mdsadidurrahman74@gmail.com)
 
 Project Link: [https://github.com/shaikat1993/Sadidur-portfolio.git](https://github.com/shaikat1993/Sadidur-portfolio.git)
 
