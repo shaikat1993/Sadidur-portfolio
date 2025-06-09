@@ -23,7 +23,7 @@ A sleek, responsive portfolio website built with React, Tailwind CSS, and Framer
 
 1. Clone the repository
 ```bash
-git clone https://github.com/yourusername/portfolio.git
+git clone https://github.com/shaikat1993/Sadidur-portfolio.git
 cd portfolio
 ```
 
@@ -102,7 +102,7 @@ Contributions, issues, and feature requests are welcome! Feel free to check the 
 
 ## 📧 Contact
 
-Your Name - [your.email@example.com](mailto:mdsadidurrahman74@gmail.com)
+Your Name - [mdsadidurrahman74@gmail.com](mailto:mdsadidurrahman74@gmail.com)
 
 Project Link: [https://github.com/shaikat1993/Sadidur-portfolio.git](https://github.com/shaikat1993/Sadidur-portfolio.git)
 
