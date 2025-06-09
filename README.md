@@ -102,7 +102,7 @@ Contributions, issues, and feature requests are welcome! Feel free to check the 
 
 ## 📧 Contact
 
-Your Name - [mdsadidurrahman74@gmail.com](mailto:mdsadidurrahman74@gmail.com)
+Md Sadidur Rahman - [mdsadidurrahman74@gmail.com](mailto:mdsadidurrahman74@gmail.com)
 
 Project Link: [https://github.com/shaikat1993/Sadidur-portfolio.git](https://github.com/shaikat1993/Sadidur-portfolio.git)
 
