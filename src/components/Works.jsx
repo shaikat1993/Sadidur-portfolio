@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { styles } from '../styles';
-import { projects } from '../constants';
 import { fadeIn, textVariant } from '../utils/motion';
 import { useTheme } from '../context/ThemeContext';
-import { FaGithub, FaAppStore } from 'react-icons/fa';
+import { FaGithub, FaAppStore, FaCog } from 'react-icons/fa';
+import { useProjects } from '../hooks/useProjects';
+import AdminPanel from './admin/AdminPanel';
 
 const ProjectCard = ({ project, index }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -250,11 +251,56 @@ const ToggleButton = ({ children, isActive, onClick }) => {
 
 const Works = () => {
   const [activeType, setActiveType] = useState("iOS Development");
+  const [showAdmin, setShowAdmin] = useState(false);
   const projectTypes = ["iOS Development", "Web Development"];
-  const { theme } = useTheme();
+  const { projects, loading, refresh } = useProjects();
+
+  const handleSaveRepos = () => {
+    refresh(); // Reload projects after saving
+    setShowAdmin(false);
+  };
+
+  // Show loading state
+  if (loading) {
+    return (
+      <section id="works" className={`${styles.padding} max-w-7xl mx-auto relative z-0 overflow-hidden`}>
+        <motion.div variants={textVariant()}>
+          <p className={`${styles.sectionSubText} text-[var(--text-secondary)] font-medium mb-2`}>
+            My work
+          </p>
+          <h2 className={`${styles.sectionHeadText} text-[var(--text-primary)] mb-10`}>
+            Projects.
+          </h2>
+        </motion.div>
+        <div className="text-center py-12">
+          <p className="text-[var(--text-secondary)]">Loading projects...</p>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section id="works" className={`${styles.padding} max-w-7xl mx-auto relative z-0 overflow-hidden`}>
+      {/* Admin Button - Only visible in development mode */}
+      {process.env.NODE_ENV === 'development' && (
+        <button
+          onClick={() => setShowAdmin(true)}
+          className="fixed bottom-8 right-8 w-14 h-14 rounded-full bg-gradient-to-r from-[var(--text-accent)] to-[var(--text-primary)] text-white flex items-center justify-center shadow-lg hover:scale-110 transition-transform z-40"
+          title="Manage GitHub Repos (Admin)"
+          aria-label="Open repository admin panel"
+        >
+          <FaCog className="text-xl" />
+        </button>
+      )}
+
+      {/* Admin Panel Modal */}
+      {showAdmin && (
+        <AdminPanel
+          onClose={() => setShowAdmin(false)}
+          onSave={handleSaveRepos}
+        />
+      )}
+
       {/* Section Header */}
       <motion.div variants={textVariant()}>
         <p className={`${styles.sectionSubText} text-[var(--text-secondary)] font-medium mb-2`}>
@@ -271,7 +317,7 @@ const Works = () => {
         className="flex flex-col items-center mb-16"
       >
         <div className="w-full max-w-4xl">
-          <div 
+          <div
             className="grid grid-cols-2 gap-3 p-3 rounded-[20px] bg-[var(--bg-paper)]/80 backdrop-blur-xl border border-[var(--border-color)] shadow-card"
           >
             {projectTypes.map((type) => (
@@ -289,9 +335,9 @@ const Works = () => {
 
       {/* Projects Display */}
       <AnimatePresence mode="wait">
-        <ProjectSection 
+        <ProjectSection
           key={activeType}
-          projectType={activeType} 
+          projectType={activeType}
           projects={projects}
         />
       </AnimatePresence>

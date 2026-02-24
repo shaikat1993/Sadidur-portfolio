@@ -385,6 +385,18 @@ export const projects = {
       ],
       isPersonalProject: true,
       source_code_link: "https://github.com/shaikat1993/LeetCode",
+    },
+    {
+      name: "AISight",
+      description: "A proof-of-concept Android application to monitor and detect GNSS anomalies in maritime domain. Uses AIS data from Digitraffic to display realtime vessel movements and data from Android's built-in GNSS receiver. Built with React Native, TypeScript, and MapLibre for TUNI project course in collaboration with TUNI GNSS unit.",
+      tags: [
+        { name: "react-native", color: "blue-text-gradient" },
+        { name: "typescript", color: "green-text-gradient" },
+        { name: "maplibre", color: "pink-text-gradient" },
+      ],
+      icon: FaMobile,
+      isPersonalProject: false,
+      source_code_link: "https://github.com/NinaDang97/AISight",
     }
   ],
   "Web Development": [
